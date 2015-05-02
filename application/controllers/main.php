@@ -28,17 +28,4 @@ class main extends CI_Controller{
     $this->load->view('main',$data);
   }
 
-  function create_new_user() {
-    $userInfo = $this->input->post(null,true);
-
-    if( count($userInfo) ) {
-      $this->load->model('user_m');
-      $saved = $this->user_m->create_new_user($userInfo);
-    }
-
-    if ( isset($saved) && $saved ) {
-       echo "success";
-    }
-  }
-
 }
