@@ -21,14 +21,14 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 					<li class="text-center">
-                    	<img src="/part_one/assets/img/find_user.png" class="user-image img-responsive"/>
+                    	<a href="<?= site_url('/profile/show_profile'); ?>"><img src="/part_one/assets/img/find_user.png" class="user-image img-responsive"/></a>
 					</li>
                     <li>
                         <a class="active-menu"  href="show_main"><i class="fa fa-home fa-3x"></i>Welcome</a>
                     </li>
 					<?php if ($is_admin) : ?>
                     <li>
-                        <a  href="http://localhost/part_one/index.php/newUser/show_newUser"><i class="fa fa-users fa-3x"></i>New user</a>
+                        <a  href="<?= site_url('/newUser/show_newUser'); ?>"><i class="fa fa-users fa-3x"></i>New user</a>
                     </li>
                     <li>
                         <a  href="tab-panel.html"><i class="fa fa-edit fa-3x"></i>Admin home</a>
@@ -342,7 +342,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                             <ul class="chat-box">
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="/part_one/assets/img/1.png" alt="User" class="img-circle" />
+                                        <img src="<?php echo base_url();?>/assets/img/1.png" alt="User" class="img-circle" />
                                     </span>
                                     <div class="chat-body">                                        
                                             <strong >Jack Sparrow</strong>
@@ -357,7 +357,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
 
-                                        <img src="/part_one/assets/img/2.png" alt="User" class="img-circle" />
+                                        <img src="<?php echo base_url();?>/assets/img/2.png" alt="User" class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         
@@ -372,7 +372,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                                 </li>
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                         <img src="/part_one/assets/img/3.png" alt="User" class="img-circle" />
+                                         <img src="<?php echo base_url();?>/assets/img/3.png" alt="User" class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         
@@ -387,7 +387,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                         <img src="/part_one/assets/img/4.png" alt="User" class="img-circle" />
+                                         <img src="<?php echo base_url();?>/assets/img/4.png" alt="User" class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                       
@@ -402,7 +402,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                                 </li>
                                     <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="/part_one/assets/img/1.png" alt="User" class="img-circle" />
+                                        <img src="<?php echo base_url();?>/assets/img/1.png" alt="User" class="img-circle" />
                                     </span>
                                     <div class="chat-body">                                        
                                             <strong >Jack Sparrow</strong>
@@ -416,7 +416,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                       <img src="/part_one/assets/img/2.png" alt="User" class="img-circle" />
+                                       <img src="<?php echo base_url();?>/assets/img/2.png" alt="User" class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         
