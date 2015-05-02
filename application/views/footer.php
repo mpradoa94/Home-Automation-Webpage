@@ -1,12 +1,12 @@
  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="/part_one/assets/js/jquery-1.10.2.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="/part_one/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="/part_one/assets/js/jquery.metisMenu.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/jquery.metisMenu.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="/part_one/assets/js/custom.js"></script>
+    <script src="<?php echo base_url();?>/assets/js/custom.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -22,6 +22,7 @@
 <script src="<?php echo base_url();?>/assets/js/vendor/bootstrap.min.js"></script>
 
 <script src="<?php echo base_url();?>/assets/js/main.js"></script>
+
 </body>
 </html>
 
