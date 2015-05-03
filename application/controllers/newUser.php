@@ -11,6 +11,27 @@ class newUser extends CI_Controller{
         redirect('/login/show_login');
     }
   }
+    
+function index()
+{
+    $this->load->helper(array('form', 'url'));
+
+    $this->load->library('form_validation');
+
+		$this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required|matches[password2]');
+    $this->form_validation->set_rules('password2', 'Password Confirmation', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
+
+    if ($this->form_validation->run() == FALSE)
+    {
+        echo '<script language="javascript">alert("Validation error");</script>'; 
+    }
+    else
+    {
+        $this->show_newUser();
+    }
+}
 
   function show_newUser() {
     
@@ -26,30 +47,54 @@ class newUser extends CI_Controller{
   }
 	
   function create_new_user() {
-    $userInfo = $this->input->post(null,true);
-	if(isset($_POST['isAdmin'])) {
-		$userInfo['isAdmin'] = true;
-	}
-	else {
-		$userInfo['isAdmin'] = false;
-	}
-	
-    if( count($userInfo) ) {
-      $this->load->model('user_m');
-      $saved = $this->user_m->create_new_user($userInfo);
-    }
+        $this->load->helper(array('form', 'url'));
 
-    if ( isset($saved) && $saved ) {
-		echo "success";
-        //redirect('/newUser/show_newUser');
-		//echo (int) $userInfo['isAdmin'];
-		/*$saved = true;
-		$data['error'] = $saved;
+        $this->load->library('form_validation');
 
-        $this->load->helper('form');
-        $this->load->view('newUser',$data);*/
-    }
+            $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Password Confirmation', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $user_id = $this->session->userdata('id');
+            $is_admin = $this->session->userdata('isAdmin');
+
+            $data['is_admin'] = $is_admin;
+            $data['email'] = $this->session->userdata('email');
+            $data['name'] = $this->session->userdata('name');
+
+            $this->load->view('newUser',$data);
+        }
+        else
+        {
+            //$this->show_newUser();
+
+            $userInfo = $this->input->post(null,true);
+            if(isset($_POST['isAdmin'])) {
+                $userInfo['isAdmin'] = true;
+            }
+            else {
+                $userInfo['isAdmin'] = false;
+            }
+
+            if( count($userInfo) ) {
+              $this->load->model('user_m');
+              $saved = $this->user_m->create_new_user($userInfo);
+            }
+
+            if ( isset($saved) && $saved ) {
+                $user_id = $this->session->userdata('id');
+                $is_admin = $this->session->userdata('isAdmin');
+
+                $data['is_admin'] = $is_admin;
+                $data['email'] = $this->session->userdata('email');
+                $data['name'] = $this->session->userdata('name');
+                $data['saved'] = true;
+                $this->load->view('newUser',$data);
+            }
+        }
+
   }
-
-
 }
