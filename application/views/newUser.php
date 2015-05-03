@@ -28,7 +28,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                     </li>
 					<?php if ($is_admin) : ?>
                      <li>
-                        <a  class="active-menu"  href="/show_newUser"><i class="fa fa-users fa-3x"></i>New user</a>
+                        <a  class="active-menu"  href="<?= site_url('/newUser/show_newUser');?>"><i class="fa fa-users fa-3x"></i>New user</a>
                     </li>
                     <li>
                         <a  href="tab-panel.html"><i class="fa fa-edit fa-3x"></i>Admin home</a>
@@ -78,8 +78,16 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-6">
+                                    <?php if ( isset($saved) && $saved ): ?>
+									<div class="alert-success">
+									<a class="close" data-dismiss="alert" href="#">×</a>
+									Success!! The user was correctly inserted
+									</div>
+									<?php endif; ?>
                                     <h3>New User Details</h3>
+                                
 									<?php echo form_open('newUser/create_new_user') ?>
+                                    
                       				<form role="form">
                                         <div class="form-group">
                                             <label>First Name</label>
@@ -87,10 +95,12 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
 											<label>Last Name</label>
 											<input type="text" class="form-control" name="lastName" id="lastName"/>
 											<label>Email</label>
+                                            <?php echo form_error('email'); ?>
 											<input type="text" class="form-control" name="email" id="email"/>
 											<label>Password</label>
-											<input type="password" class="form-control" name="password" id="password"/>
-											<label>Confirm Password</label>
+                                            <?php echo form_error('password'); ?>
+											<input type="password" class="form-control" name="password" id="password" value="<?php echo set_value('password'); ?>"/>
+											<label>Confirm Password</label><?php echo form_error('password2'); ?>
 											<input type="password" class="form-control" name="password2" id="password2"/>
                                             <div class="checkbox">
                                                 <label>
@@ -101,12 +111,7 @@ font-size: 16px;"><a href="<?php echo base_url() ?>/index.php/login/logout_user"
                                         	<button type="reset" class="btn btn-default">Cancel</button>
                                         </div>
 									</form>
-									<?php if ( isset($saved) && $saved ):  ?>
-									<div class="alert-success">
-									<a class="close" data-dismiss="alert" href="#">×</a>
-									Success!!!
-									</div>
-									<?php endif; ?>
+									
     							</div>
                             </div>
                         </div>
